@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Little monsters">
 <meta property="og:description" content="讲解">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T08:52:32.601Z">
+<meta property="og:updated_time" content="2018-09-19T08:56:17.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="express">
 <meta name="twitter:description" content="讲解">
@@ -348,8 +348,7 @@
       
         <p>安装express开启服务</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.send(<span class="string">'Hello World!'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = app.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> host = server.address().address;</span><br><span class="line">  <span class="keyword">var</span> port = server.address().port;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Example app listening at http://%s:%s'</span>, host, port);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>####express解析参数</p>
-<p>get请求</p>
+<h4 id="express解析参数"><a href="#express解析参数" class="headerlink" title="express解析参数"></a>express解析参数</h4><p>get请求</p>
 <p>req.query</p>
 <p>post请求 </p>
 <p>post请求要借助body-parser模块。使用后，将可以用req.body得到参数</p>
@@ -357,8 +356,7 @@
 <p>// parse application/json<br>// app.use(bodyParser.json())</p>
 <p>静态资源路径</p>
 <p>app.use(‘/static’,express.static(‘./static’));</p>
-<p>####路由的分发</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> home= <span class="built_in">require</span>(<span class="string">'./router/home'</span>);</span><br><span class="line">app.use(<span class="string">'/home'</span>,home);</span><br></pre></td></tr></table></figure>
+<h4 id="路由的分发"><a href="#路由的分发" class="headerlink" title="路由的分发"></a>路由的分发</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> home= <span class="built_in">require</span>(<span class="string">'./router/home'</span>);</span><br><span class="line">app.use(<span class="string">'/home'</span>,home);</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//router/home.js</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> express=<span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line">	<span class="keyword">const</span> router=express.Router();</span><br><span class="line"></span><br><span class="line">	router.use(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">		next()</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	router.get(<span class="string">'/'</span>,(req,res)=&gt;&#123;</span><br><span class="line">		res.send(<span class="string">'home/'</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">	router.post(<span class="string">'/'</span>,(req,res)=&gt;&#123;</span><br><span class="line">		res.send(req.body)</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="built_in">module</span>.exports=router;</span><br></pre></td></tr></table></figure>
 <p>express  骨架生成</p>
 <h4 id="mongodb数据库使用"><a href="#mongodb数据库使用" class="headerlink" title="mongodb数据库使用"></a>mongodb数据库使用</h4><p>可视化管理工具</p>
@@ -428,8 +426,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/17/我的第一篇文章/" rel="next" title="第一次试验">
-                <i class="fa fa-chevron-left"></i> 第一次试验
+              <a href="/2018/09/17/实验品/" rel="next" title="实验品">
+                <i class="fa fa-chevron-left"></i> 实验品
               </a>
             
           </div>
@@ -572,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#mongodb数据库使用"><span class="nav-number">1.</span> <span class="nav-text">mongodb数据库使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#API文档自动生成工具"><span class="nav-number">2.</span> <span class="nav-text">API文档自动生成工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件上传删除操作"><span class="nav-number">3.</span> <span class="nav-text">文件上传删除操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JWT"><span class="nav-number">4.</span> <span class="nav-text">JWT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RESTful-api规范"><span class="nav-number">5.</span> <span class="nav-text">RESTful api规范</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#express解析参数"><span class="nav-number">1.</span> <span class="nav-text">express解析参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由的分发"><span class="nav-number">2.</span> <span class="nav-text">路由的分发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mongodb数据库使用"><span class="nav-number">3.</span> <span class="nav-text">mongodb数据库使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#API文档自动生成工具"><span class="nav-number">4.</span> <span class="nav-text">API文档自动生成工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件上传删除操作"><span class="nav-number">5.</span> <span class="nav-text">文件上传删除操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JWT"><span class="nav-number">6.</span> <span class="nav-text">JWT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RESTful-api规范"><span class="nav-number">7.</span> <span class="nav-text">RESTful api规范</span></a></li></ol></div>
             
 
           </div>
