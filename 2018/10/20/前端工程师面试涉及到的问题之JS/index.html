@@ -82,14 +82,14 @@
 <meta name="description" content="为了一份好的offer">
 <meta name="keywords" content="面试问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端工程师面试涉及的知识点----ES6">
+<meta property="og:title" content="前端工程师面试涉及的知识点----JS">
 <meta property="og:url" content="http://yoursite.com/2018/10/20/前端工程师面试涉及到的问题之JS/index.html">
 <meta property="og:site_name" content="Little monsters">
 <meta property="og:description" content="为了一份好的offer">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-20T07:36:20.618Z">
+<meta property="og:updated_time" content="2018-10-20T07:43:40.066Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端工程师面试涉及的知识点----ES6">
+<meta name="twitter:title" content="前端工程师面试涉及的知识点----JS">
 <meta name="twitter:description" content="为了一份好的offer">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>前端工程师面试涉及的知识点----ES6 | Little monsters</title>
+  <title>前端工程师面试涉及的知识点----JS | Little monsters</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端工程师面试涉及的知识点----ES6</h1>
+          <h1 class="post-title" itemprop="name headline">前端工程师面试涉及的知识点----JS</h1>
         
 
         <div class="post-meta">
@@ -346,40 +346,19 @@
       
 
       
-        <h3 id="一、js的基本类型有哪些？引用类型有哪些？null和undefined的区别。"><a href="#一、js的基本类型有哪些？引用类型有哪些？null和undefined的区别。" class="headerlink" title="一、js的基本类型有哪些？引用类型有哪些？null和undefined的区别。"></a>一、js的基本类型有哪些？引用类型有哪些？null和undefined的区别。</h3><p>  基本类型：Number、String、Boolean、Null、Undefined<br>  引用类型：Object / Array / Function / Date / RegExp …<br>  区别：目前，null和undefined基本是同义的，只有一些细微的差别。<br>      null表示”没有对象”，即该处不应该有值。典型用法是：</p>
-<pre><code>（1） 作为函数的参数，表示该函数的参数不是对象。
-
-（2） 作为对象原型链的终点。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(Object.prototype)</span><br><span class="line">// null</span><br></pre></td></tr></table></figure>
+        <h3 id="一、js的基本类型有哪些？引用类型有哪些？null和undefined的区别。"><a href="#一、js的基本类型有哪些？引用类型有哪些？null和undefined的区别。" class="headerlink" title="一、js的基本类型有哪些？引用类型有哪些？null和undefined的区别。"></a>一、js的基本类型有哪些？引用类型有哪些？null和undefined的区别。</h3><p>  基本类型：Number、String、Boolean、Null、Undefined<br>  引用类型：Object / Array / Function / Date / RegExp …<br>  区别：目前，null和undefined基本是同义的，只有一些细微的差别。<br>   null表示”没有对象”，即该处不应该有值。典型用法是：</p>
+<p>  （1） 作为函数的参数，表示该函数的参数不是对象。</p>
+<p>  （2） 作为对象原型链的终点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(Object.prototype)</span><br><span class="line">// null</span><br></pre></td></tr></table></figure></p>
 <pre><code>undefined表示&quot;缺少值&quot;，就是此处应该有一个值，但是还没有定义。典型用法是：
 </code></pre><p>（1）变量被声明了，但没有赋值时，就等于undefined。</p>
 <p>（2) 调用函数时，应该提供的参数没有提供，该参数等于undefined。</p>
 <p>（3）对象没有赋值的属性，该属性的值为undefined。</p>
 <p>（4）函数没有返回值时，默认返回undefined。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var i;</span><br><span class="line">i // undefined</span><br><span class="line"></span><br><span class="line">function f(x)&#123;console.log(x)&#125;</span><br><span class="line">f() // undefined</span><br><span class="line"></span><br><span class="line">var  o = new Object();</span><br><span class="line">o.p // undefined</span><br><span class="line"></span><br><span class="line">var x = f();</span><br><span class="line">x // undefined</span><br></pre></td></tr></table></figure>
-<h3 id="二、如何判断一个变量是Array类型？如何判断一个变量是Number类型？（都不止一种）"><a href="#二、如何判断一个变量是Array类型？如何判断一个变量是Number类型？（都不止一种）" class="headerlink" title="二、如何判断一个变量是Array类型？如何判断一个变量是Number类型？（都不止一种）"></a>二、如何判断一个变量是Array类型？如何判断一个变量是Number类型？（都不止一种）</h3><pre><code>1、判断一个变量是Array类型：
-Array.isArray()  （IE8之前的版本是不支持的）
-Object.prototype.toString： （这种方法在识别内置对象时往往十分有用，但对于自定义对象请不要使用这种方法。）
-2、判断一个变量是Number类型：
-js正则表达式
-typeof()
-isNaN（）
-</code></pre><h3 id="三、Object是引用类型嘛？引用类型和基本类型有什么区别？哪个是存在堆哪一个是存在栈上面的？"><a href="#三、Object是引用类型嘛？引用类型和基本类型有什么区别？哪个是存在堆哪一个是存在栈上面的？" class="headerlink" title="三、Object是引用类型嘛？引用类型和基本类型有什么区别？哪个是存在堆哪一个是存在栈上面的？"></a>三、Object是引用类型嘛？引用类型和基本类型有什么区别？哪个是存在堆哪一个是存在栈上面的？</h3><pre><code>是
-基本类型和引用类型，他们是区别是一个有固定空间存在于栈内存中，一个没有固定空间保存在堆内存中并且在栈内存中保存了一个指向实现位置的指针。
-（1）声明变量时不同的内存分配：
-  基本类型：存储在栈（stack）中的简单数据段，也就是说，它们的值直接存储在变量访问的位置。这是因为这些原始类型占据的空间是固定的，所以可将他们存储在较小的内存区域 – 栈中。这样存储便于迅速查寻变量的值。
-  引用类型：存储在堆（heap）中的对象，也就是说，存储在变量处的值是一个指针（point），指向存储对象的内存地址。这是因为：引用值的大小会改变，所以不能把它放在栈中，否则会降低变量查寻的速度。相反，放在变量的栈空间中的值是该对象存储在堆中的地址。地址的大小是固定的，所以把它存储在栈中对变量性能无任何负面影响。
-（2）复制变量值的不同
-  从一个变量向另一个变量复制基本类型的值，会在变量对象上创建一个新值，然后把该值复制到新变量分配的位置上。
-  从一个变量向另一个变量复制引用类型的值，会把指向存储在堆中的一个对象的指针复制到一个放在新变量分配的空间中。复制结束后，两个变量实际上引用同一个对象。
-（3）传递参数的不同
-  ECMAScript中所有函数的参数都是按值传递的，意味着把函数尾部的值复制到函数内部的参数就和把值从一个变量复制到另一变量是一样。
-  在向参数传递基本类型的值时，被传递的值会被复制给一个局部变量。
-  在向参数传递引用类型的值时，会把这个值在内存中的地址复制给一个局部变量，因此这个局部变量的变化会反映在函数的外部。
-</code></pre><h3 id="四、JS常见的dom操作api"><a href="#四、JS常见的dom操作api" class="headerlink" title="四、JS常见的dom操作api"></a>四、JS常见的dom操作api</h3><pre><code>（1）节点查找API
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById ：根据ID查找元素，大小写敏感，如果有多个结果，只返回第一个；</span><br><span class="line"></span><br><span class="line">document.getElementsByClassName ：根据类名查找元素，多个类名用空格分隔，返回一个 HTMLCollection 。注意兼容性为IE9+（含）。另外，不仅仅是document，其它元素也支持 getElementsByClassName 方法；</span><br><span class="line"></span><br><span class="line">document.getElementsByTagName ：根据标签查找元素， * 表示查询所有标签，返回一个 HTMLCollection 。</span><br><span class="line"></span><br><span class="line">document.getElementsByName ：根据元素的name属性查找，返回一个 NodeList 。</span><br><span class="line"></span><br><span class="line">document.querySelector ：返回单个Node，IE8+(含），如果匹配到多个结果，只返回第一个。</span><br><span class="line"></span><br><span class="line">document.querySelectorAll ：返回一个 NodeList ，IE8+(含）。</span><br><span class="line"></span><br><span class="line">document.forms ：获取当前页面所有form，返回一个 HTMLCollection ；</span><br></pre></td></tr></table></figure>
-<pre><code>（2）节点创建API
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#### createElement创建元素</span><br></pre></td></tr></table></figure>
+<h3 id="二、如何判断一个变量是Array类型？如何判断一个变量是Number类型？（都不止一种）"><a href="#二、如何判断一个变量是Array类型？如何判断一个变量是Number类型？（都不止一种）" class="headerlink" title="二、如何判断一个变量是Array类型？如何判断一个变量是Number类型？（都不止一种）"></a>二、如何判断一个变量是Array类型？如何判断一个变量是Number类型？（都不止一种）</h3><p>   1、判断一个变量是Array类型：<br>   Array.isArray()  （IE8之前的版本是不支持的）<br>   Object.prototype.toString： （这种方法在识别内置对象时往往十分有用，但对于自定义对象请不要使用这种方法。）<br>   2、判断一个变量是Number类型：<br>   js正则表达式<br>   typeof()<br>   isNaN（）</p>
+<h3 id="三、Object是引用类型嘛？引用类型和基本类型有什么区别？哪个是存在堆哪一个是存在栈上面的？"><a href="#三、Object是引用类型嘛？引用类型和基本类型有什么区别？哪个是存在堆哪一个是存在栈上面的？" class="headerlink" title="三、Object是引用类型嘛？引用类型和基本类型有什么区别？哪个是存在堆哪一个是存在栈上面的？"></a>三、Object是引用类型嘛？引用类型和基本类型有什么区别？哪个是存在堆哪一个是存在栈上面的？</h3><p>   是<br>   基本类型和引用类型，他们是区别是一个有固定空间存在于栈内存中，一个没有固定空间保存在堆内存并且在栈内存中保存了一个指向实现位置的指针。<br>   （1）声明变量时不同的内存分配：<br>   基本类型：存储在栈（stack）中的简单数据段，也就是说，它们的值直接存储在变量访问的位置。这是因为这些原始类型占据的空间是固定的，所以可将他们存储在较小的内存区域 – 栈中。这样存储便于迅速查寻变量的值。<br>   引用类型：存储在堆（heap）中的对象，也就是说，存储在变量处的值是一个指针（point），指向存储对象的内存地址。这是因为：引用值的大小会改变，所以不能把它放在栈中，否则会降低变量查寻的速度。相反，放在变量的栈空间中的值是该对象存储在堆中的地址。地址的大小是固定的，所以把它存储在栈中对变量性能无任何负面影响。<br>   （2）复制变量值的不同<br>   从一个变量向另一个变量复制基本类型的值，会在变量对象上创建一个新值，然后把该值复制到新变量分配的位置上。<br>   从一个变量向另一个变量复制引用类型的值，会把指向存储在堆中的一个对象的指针复制到一个放在新变量分配的空间中。复制结束后，两个变量实际上引用同一个对象。<br>   （3）传递参数的不同<br>   ECMAScript中所有函数的参数都是按值传递的，意味着把函数尾部的值复制到函数内部的参数就和把值从一个变量复制到另一变量是一样。<br>   在向参数传递基本类型的值时，被传递的值会被复制给一个局部变量。<br>   在向参数传递引用类型的值时，会把这个值在内存中的地址复制给一个局部变量，因此这个局部变量的变化会反映在函数的外部。</p>
+<h3 id="四、JS常见的dom操作api"><a href="#四、JS常见的dom操作api" class="headerlink" title="四、JS常见的dom操作api"></a>四、JS常见的dom操作api</h3><p>   （1）节点查找API<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById ：根据ID查找元素，大小写敏感，如果有多个结果，只返回第一个；</span><br><span class="line"></span><br><span class="line">document.getElementsByClassName ：根据类名查找元素，多个类名用空格分隔，返回一个 HTMLCollection 。注意兼容性为IE9+（含）。另外，不仅仅是document，其它元素也支持 getElementsByClassName 方法；</span><br><span class="line"></span><br><span class="line">document.getElementsByTagName ：根据标签查找元素， * 表示查询所有标签，返回一个 HTMLCollection 。</span><br><span class="line"></span><br><span class="line">document.getElementsByName ：根据元素的name属性查找，返回一个 NodeList 。</span><br><span class="line"></span><br><span class="line">document.querySelector ：返回单个Node，IE8+(含），如果匹配到多个结果，只返回第一个。</span><br><span class="line"></span><br><span class="line">document.querySelectorAll ：返回一个 NodeList ，IE8+(含）。</span><br><span class="line"></span><br><span class="line">document.forms ：获取当前页面所有form，返回一个 HTMLCollection ；</span><br></pre></td></tr></table></figure></p>
+<p>   （2）节点创建API<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">createElement创建元素</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>参考文章：</p>
 <blockquote>
